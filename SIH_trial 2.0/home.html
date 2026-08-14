@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIH_TRIAL — find your hostel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="brand"><div class="mark"></div><span>SIH_TRIAL</span></div>
+    <div class="nav-actions">
+      <button class="icon-btn" title="Saved hostels">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+      </button>
+      <button class="icon-btn" title="Notifications">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg>
+      </button>
+      <div class="avatar">R</div>
+    </div>
+  </header>
+
+  <!-- HERO / SEARCH -->
+  <section class="hero">
+    <div class="hero-blob hb1"></div>
+    <div class="hero-blob hb2"></div>
+    <p class="eyebrow">Greater Noida &amp; nearby campuses</p>
+    <h1>Find your next room<br /><span>in one click.</span></h1>
+    <p class="hero-sub">Search verified hostels &amp; PGs around your college — compare, shortlist, move in.</p>
+
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="searchInput" type="text" placeholder="Enter your college campus — e.g. GL Bajaj, KCC, NIET, Galgotias..." />
+      <button id="searchBtn" class="search-btn">Search</button>
+    </div>
+  </section>
+
+  <!-- FILTERS -->
+  <section class="filters">
+    <div class="filter-group" id="genderGroup">
+      <button class="chip active" data-gender="all">All Hostels</button>
+      <button class="chip" data-gender="male">Male Hostel</button>
+      <button class="chip" data-gender="female">Female Hostel</button>
+    </div>
+    <div class="filter-group sort-group" id="sortGroup">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-chip active" data-sort="review">Review</button>
+      <button class="sort-chip" data-sort="distance">Distance</button>
+      <button class="sort-chip" data-sort="mess">Mess quality</button>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="results">
+    <div class="results-head">
+      <h2>Hostels near you</h2>
+      <span id="resultCount" class="result-count"></span>
+    </div>
+    <div class="hostel-grid" id="hostelGrid"><!-- cards injected by home.js --></div>
+    <p class="empty-state" id="emptyState" hidden>No hostels match that search — try a different college name.</p>
+  </section>
+
+  <script src="home.js"></script>
+</body>
+</html>

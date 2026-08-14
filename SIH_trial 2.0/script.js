@@ -77,4 +77,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // --- 5. Redirect to home page after Create Account / Log in ---
+  // NOTE: this is a placeholder — once the backend (Supabase) is wired up,
+  // this should only redirect after a successful signup/login response.
+  const signUpForm = document.querySelector('.sign-up');
+  const signInForm = document.querySelector('.sign-in');
+
+  const signUpSubmit = signUpForm ? signUpForm.querySelector('.submit-btn') : null;
+  const signInSubmit = signInForm ? signInForm.querySelector('.submit-btn') : null;
+
+  if (signUpSubmit) {
+    signUpSubmit.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'home.html';
+    });
+  }
+
+  if (signInSubmit) {
+    signInSubmit.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'home.html';
+    });
+  }
 });
