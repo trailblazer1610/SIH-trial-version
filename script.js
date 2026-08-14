@@ -1,49 +1,80 @@
-const container = document.getElementById('container');
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('container');
+  const overlayLoginBtn = document.getElementById('overlay-login-btn');
+  const overlaySignupBtn = document.getElementById('overlay-signup-btn');
+  const switchToSignup = document.getElementById('switch-to-signup');
+  const switchToLogin = document.getElementById('switch-to-login');
 
-// Function to switch panel mode
-function setMode(signUp) {
-  container.classList.toggle('right-panel-active', signUp);
-}
+  // --- 1. Overlay / Panel Toggle (Sign In vs Sign Up) ---
+  if (overlaySignupBtn) {
+    overlaySignupBtn.addEventListener('click', () => {
+      container.classList.add('right-panel-active');
+    });
+  }
 
-// Overlay button triggers
-document.getElementById('overlay-login-btn')?.addEventListener('click', () => setMode(false));
-document.getElementById('overlay-signup-btn')?.addEventListener('click', () => setMode(true));
+  if (overlayLoginBtn) {
+    overlayLoginBtn.addEventListener('click', () => {
+      container.classList.remove('right-panel-active');
+    });
+  }
 
-// Mobile switch triggers
-document.getElementById('switch-to-signup')?.addEventListener('click', () => setMode(true));
-document.getElementById('switch-to-login')?.addEventListener('click', () => setMode(false));
+  // Mobile View Switchers
+  if (switchToSignup) {
+    switchToSignup.addEventListener('click', () => {
+      container.classList.add('right-panel-active');
+    });
+  }
 
-// Role pills handler (Student / Hostel)
-document.querySelectorAll('.role-pill').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const panel = btn.closest('.form-panel');
-    panel.querySelectorAll('.role-pill').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    panel.dataset.role = btn.dataset.role;
+  if (switchToLogin) {
+    switchToLogin.addEventListener('click', () => {
+      container.classList.remove('right-panel-active');
+    });
+  }
+
+  // --- 2. Role Switching (Student vs Hostel / Owner) ---
+  const rolePills = document.querySelectorAll('.role-pill');
+
+  rolePills.forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      const selectedRole = e.target.getAttribute('data-role');
+      const formPanel = e.target.closest('.form-panel');
+
+      // Update role pills active state within the current panel
+      formPanel.querySelectorAll('.role-pill').forEach(btn => btn.classList.remove('active'));
+      e.target.classList.add('active');
+
+      // Set data attribute on the container/panel to filter fields via CSS/JS
+      formPanel.setAttribute('data-role', selectedRole);
+    });
   });
-});
 
-// Login method pills handler (Password / OTP)
-document.querySelectorAll('.method-pill').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const panel = btn.closest('.form-panel');
-    panel.querySelectorAll('.method-pill').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    panel.dataset.login = btn.dataset.login;
+  // --- 3. Login Method Switcher (Password vs OTP) ---
+  const methodPills = document.querySelectorAll('.method-pill');
+
+  methodPills.forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      const selectedMethod = e.target.getAttribute('data-login');
+      const formPanel = e.target.closest('.form-panel');
+
+      // Update method pills active state within the panel
+      formPanel.querySelectorAll('.method-pill').forEach(btn => btn.classList.remove('active'));
+      e.target.classList.add('active');
+
+      // Set data attribute on panel to toggle Password / OTP fields
+      formPanel.setAttribute('data-login', selectedMethod);
+    });
   });
-});
 
-// Password show/hide toggle
-document.querySelectorAll('.toggle-eye').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const pwInput = btn.closest('.input-wrap').querySelector('input');
-    pwInput.type = pwInput.type === 'password' ? 'text' : 'password';
-  });
-});
+  // --- 4. Password Toggle (Show/Hide) ---
+  const toggleEyeButtons = document.querySelectorAll('.toggle-eye');
 
-// Send OTP button action
-document.querySelectorAll('.send-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    btn.textContent = 'Resend';
+  toggleEyeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const passwordInput = button.parentElement.querySelector('input');
+      if (passwordInput) {
+        const currentType = passwordInput.getAttribute('type');
+        passwordInput.setAttribute('type', currentType === 'password' ? 'text' : 'password');
+      }
+    });
   });
 });
