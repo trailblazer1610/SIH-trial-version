@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Room Availability — Elite Girls PG</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="room availability.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="hostel detail.html" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Elite Girls PG
+    </a>
+    <div class="brand"><div class="mark"></div><span>SIH_TRIAL</span></div>
+  </header>
+
+  <section class="page-head">
+    <h1>Room availability</h1>
+    <p>Elite Girls PG · Near Galgotias University · tap a room for details</p>
+    <div class="legend">
+      <span class="legend-item"><i class="dot available"></i> Available</span>
+      <span class="legend-item"><i class="dot full"></i> Full</span>
+    </div>
+  </section>
+
+  <section class="floors" id="floors"><!-- rendered by room-availability.js --></section>
+
+  <!-- ROOM DETAIL MODAL -->
+  <div class="modal-overlay" id="roomModal" hidden>
+    <div class="modal-box">
+      <button class="modal-close" id="closeRoomModal">&times;</button>
+      <span class="modal-room-badge" id="modalRoomNo"></span>
+      <h3 id="modalStatus"></h3>
+      <div class="modal-details" id="modalDetails"></div>
+      <button class="modal-cta" id="modalCta">Enquire about this room</button>
+    </div>
+  </div>
+
+  <script src="room availability.js"></script>
+</body>
+</html>

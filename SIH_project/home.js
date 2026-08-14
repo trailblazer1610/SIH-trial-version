@@ -153,11 +153,16 @@ searchInput.addEventListener("input", () => {
   render();
 });
 
-// placeholder for hostel detail page — hook this up later
+// Elite Girls PG (id 4) has a live detail/review/room-availability trial.
+// Other cards will get the same treatment once the backend is connected.
 hostelGrid.addEventListener("click", (e) => {
   const btn = e.target.closest(".view-btn");
   if (!btn) return;
-  alert("Hostel detail page coming soon — id: " + btn.dataset.id);
+  if (btn.dataset.id === "4") {
+    window.location.href = "hostel detail.html";
+  } else {
+    alert("Full detail page coming soon for this hostel — try Elite Girls PG for a live preview!");
+  }
 });
 
 render();
