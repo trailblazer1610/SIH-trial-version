@@ -30,36 +30,81 @@
   <section class="hero">
     <div class="hero-blob hb1"></div>
     <div class="hero-blob hb2"></div>
-    <p class="eyebrow">Greater Noida &amp; nearby campuses</p>
-    <h1>Find your next room<br /><span>in one click.</span></h1>
-    <p class="hero-sub">Search verified hostels &amp; PGs around your college — compare, shortlist, move in.</p>
+    <div class="hearts-fx only-girls" aria-hidden="true">
+      <span class="heart hf1">💗</span>
+      <span class="heart hf2">💕</span>
+      <span class="heart hf3">💖</span>
+      <span class="heart hf4">💗</span>
+      <span class="heart hf5">💕</span>
+    </div>
+
+    <p class="eyebrow only-default">Greater Noida &amp; nearby campuses</p>
+    <p class="eyebrow only-girls">✨ Girls Safe-Stay Portal ✨</p>
+
+    <h1 class="only-default">Find your next room<br /><span>in one click.</span></h1>
+    <h1 class="only-girls">Find a home,<br /><span>not just a room. 💗</span></h1>
+
+    <p class="hero-sub only-default">Search verified hostels &amp; PGs around your college — compare, shortlist, move in.</p>
+    <p class="hero-sub only-girls">Handpicked, women-only stays — verified for safety, comfort and peace of mind.</p>
 
     <div class="search-bar">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
       <input id="searchInput" type="text" placeholder="Enter your college campus — e.g. GL Bajaj, KCC, NIET, Galgotias..." />
       <button id="searchBtn" class="search-btn">Search</button>
     </div>
+
+    <p class="girls-quote only-girls">"We treat every girl like our own daughter — safe, cared for, and always welcome home." 💗</p>
   </section>
 
   <!-- FILTERS -->
   <section class="filters">
-    <div class="filter-group" id="genderGroup">
-      <button class="chip active" data-gender="all">All Hostels</button>
-      <button class="chip" data-gender="male">Male Hostel</button>
-      <button class="chip" data-gender="female">Female Hostel</button>
-    </div>
-    <div class="filter-group sort-group" id="sortGroup">
-      <span class="sort-label">Sort by</span>
-      <button class="sort-chip active" data-sort="review">Review</button>
-      <button class="sort-chip" data-sort="distance">Distance</button>
-      <button class="sort-chip" data-sort="mess">Mess quality</button>
+    <label class="girls-toggle">
+      <input type="checkbox" id="girlsModeToggle" />
+      <span class="toggle-track"><span class="toggle-thumb"></span></span>
+      <span class="toggle-label only-default">🌸 Switch to Girls Portal</span>
+      <span class="toggle-label only-girls">💗 Girls Portal is ON</span>
+    </label>
+
+    <div class="filter-dropdown" id="filterDropdown">
+      <button class="dropdown-toggle" id="dropdownToggle" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+        Sort &amp; Filter
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+
+      <div class="dropdown-panel" id="dropdownPanel" hidden>
+        <div class="panel-section">
+          <h4>Sort by</h4>
+          <label><input type="radio" name="sortOpt" value="review" checked /> Review (High to Low)</label>
+          <label><input type="radio" name="sortOpt" value="distance" /> Distance (Near to Far)</label>
+          <label><input type="radio" name="sortOpt" value="feeLow" /> Fee (Low to High)</label>
+          <label><input type="radio" name="sortOpt" value="feeHigh" /> Fee (High to Low)</label>
+        </div>
+
+        <div class="panel-section">
+          <h4>Amenities</h4>
+          <label><input type="checkbox" id="gymFilter" /> Gym availability</label>
+          <label><input type="checkbox" id="noRestrictionFilter" /> No entry restriction</label>
+        </div>
+
+        <div class="panel-section">
+          <h4>Max Fee: <span id="feeValue">₹15,000</span></h4>
+          <input type="range" id="feeRange" min="5000" max="15000" step="500" value="15000" />
+        </div>
+
+        <div class="panel-actions">
+          <button class="reset-btn" id="resetFilters" type="button">Reset</button>
+          <button class="apply-btn" id="applyFilters" type="button">Apply</button>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- RESULTS -->
   <section class="results">
     <div class="results-head">
-      <h2>Hostels near you</h2>
+      <h2 class="only-default">Hostels near you</h2>
+      <h2 class="only-girls">💕 Hostels chosen for our girls</h2>
       <span id="resultCount" class="result-count"></span>
     </div>
     <div class="hostel-grid" id="hostelGrid"><!-- cards injected by home.js --></div>
