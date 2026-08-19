@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hostel Weekly Mess Menu</title>
+<style>
+  :root{
+    --maroon:#7a1f2b;
+    --gold:#c9a24b;
+    --cream:#fdf6ec;
+    --cream-dark:#f3e6cf;
+    --ink:#2e2420;
+    --green:#4a6b3a;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(160deg, #fbeee0, #f4e2c9);
+    color:var(--ink);
+    padding:30px 15px;
+    min-height:100vh;
+  }
+
+  .wrapper{
+    max-width:1150px;
+    margin:0 auto;
+    background:var(--cream);
+    border-radius:18px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.18);
+    overflow:hidden;
+    border:1px solid var(--gold);
+  }
+
+  header{
+    background: linear-gradient(135deg, var(--maroon), #9c2e3c);
+    color:#fff;
+    text-align:center;
+    padding:35px 20px 28px;
+    position:relative;
+  }
+
+  header::after{
+    content:"";
+    position:absolute;
+    bottom:0; left:0; right:0;
+    height:6px;
+    background: repeating-linear-gradient(45deg, var(--gold) 0 10px, #e6c877 10px 20px);
+  }
+
+  header h1{
+    font-size:2.2rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    font-weight:700;
+  }
+
+  header p.sub{
+    margin-top:8px;
+    font-size:1rem;
+    opacity:0.9;
+    font-style:italic;
+  }
+
+  .quote-box{
+    background:var(--cream-dark);
+    text-align:center;
+    padding:22px 25px;
+    border-bottom:2px dashed var(--gold);
+  }
+
+  .quote-box p{
+    font-size:1.15rem;
+    font-style:italic;
+    color:var(--maroon);
+    max-width:750px;
+    margin:0 auto;
+    line-height:1.6;
+  }
+
+  .quote-box span{
+    display:block;
+    margin-top:8px;
+    font-size:0.9rem;
+    color:var(--green);
+    font-weight:600;
+    font-style:normal;
+  }
+
+  .table-container{
+    overflow-x:auto;
+    padding:25px;
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:900px;
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+  }
+
+  thead tr{
+    background: linear-gradient(135deg, var(--gold), #d8b869);
+    color:#3a2c10;
+  }
+
+  thead th{
+    padding:16px 12px;
+    text-align:center;
+    font-size:1rem;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    border-right:1px solid rgba(255,255,255,0.35);
+  }
+
+  thead th:first-child{
+    text-align:left;
+    padding-left:20px;
+    width:110px;
+  }
+
+  tbody tr{
+    border-bottom:1px solid #eee0c4;
+    transition:background 0.25s ease;
+  }
+
+  tbody tr:nth-child(even){
+    background:#fbf4e5;
+  }
+
+  tbody tr:hover{
+    background:#f3e0c0;
+  }
+
+  tbody td{
+    padding:16px 14px;
+    text-align:center;
+    vertical-align:top;
+    border-right:1px solid #eee0c4;
+    font-size:0.92rem;
+    line-height:1.5;
+  }
+
+  tbody td:first-child{
+    text-align:left;
+    padding-left:20px;
+  }
+
+  .day-name{
+    font-weight:700;
+    color:var(--maroon);
+    font-size:1.05rem;
+    display:block;
+  }
+
+  .meal-time{
+    display:block;
+    font-size:0.72rem;
+    color:var(--green);
+    font-weight:600;
+    margin-bottom:4px;
+    text-transform:uppercase;
+    letter-spacing:0.4px;
+  }
+
+  .time-header-sub{
+    display:block;
+    font-size:0.72rem;
+    font-weight:400;
+    opacity:0.85;
+    margin-top:3px;
+    text-transform:none;
+    letter-spacing:0;
+  }
+
+  footer{
+    text-align:center;
+    padding:20px;
+    background:var(--maroon);
+    color:var(--cream-dark);
+    font-size:0.85rem;
+    letter-spacing:0.5px;
+  }
+
+  @media (max-width:600px){
+    header h1{font-size:1.5rem;}
+    .quote-box p{font-size:1rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <header>
+    <h1>🍽 Hostel Weekly Mess Menu</h1>
+    <p class="sub">A Home Away From Home</p>
+  </header>
+
+  <div class="quote-box">
+    <p>"Food cooked with love tastes like home — every meal here is served with the warmth of a mother's hand."</p>
+    <span>— Hostel Mess Committee</span>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Morning<span class="time-header-sub">7:00 AM – 9:00 AM</span></th>
+          <th>Noon<span class="time-header-sub">12:30 PM – 2:00 PM</span></th>
+          <th>Evening<span class="time-header-sub">5:00 PM – 6:00 PM</span></th>
+          <th>Night<span class="time-header-sub">8:00 PM – 9:30 PM</span></th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td><span class="day-name">Monday</span></td>
+          <td>Poha, Boiled Egg, Tea/Milk</td>
+          <td>Rice, Dal, Aloo Gobi, Roti, Salad</td>
+          <td>Samosa, Tea, Biscuits</td>
+          <td>Rice, Rajma, Roti, Curd</td>
+        </tr>
+
+        <tr>
+          <td><span class="day-name">Tuesday</span></td>
+          <td>Bread Omelette, Tea/Milk</td>
+          <td>Rice, Dal Fry, Bhindi Masala, Roti</td>
+          <td>Bread Pakora, Tea</td>
+          <td>Rice, Chole, Roti, Papad</td>
+        </tr>
+
+        <tr>
+          <td><span class="day-name">Wednesday</span></td>
+          <td>Idli, Sambhar, Coconut Chutney, Tea</td>
+          <td>Rice, Kadhi Pakora, Mix Veg, Roti</td>
+          <td>Vegetable Cutlet, Tea</td>
+          <td>Rice, Paneer Butter Masala, Roti</td>
+        </tr>
+
+        <tr>
+          <td><span class="day-name">Thursday</span></td>
+          <td>Paratha, Curd, Pickle, Tea</td>
+          <td>Rice, Dal Tadka, Lauki Sabzi, Roti</td>
+          <td>Pasta, Tea</td>
+          <td>Rice, Egg Curry / Veg Kofta, Roti</td>
+        </tr>
+
+        <tr>
+          <td><span class="day-name">Friday</span></td>
+          <td>Upma, Boiled Egg, Tea/Milk</td>
+          <td>Rice, Chana Dal, Baingan Bharta, Roti</td>
+          <td>Sandwich, Tea</td>
+          <td>Rice, Dal Makhani, Roti, Salad</td>
+        </tr>
+
+        <tr>
+          <td><span class="day-name">Saturday</span></td>
+          <td>Chole Bhature, Tea/Milk</td>
+          <td>Rice, Sambhar, Aloo Matar, Roti</td>
+          <td>Momos, Tea</td>
+          <td>Rice, Mix Veg Curry, Roti, Papad</td>
+        </tr>
+
+        <tr>
+          <td><span class="day-name">Sunday</span></td>
+          <td>Aloo Paratha, Curd, Butter, Tea</td>
+          <td>Special Thali — Paneer, Sweet, Rice, Roti, Salad, Raita</td>
+          <td>Pakora, Tea</td>
+          <td>Veg Biryani, Raita, Papad</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    🍴 Prepared with care by the Hostel Kitchen Team &nbsp;|&nbsp; Menu subject to seasonal change
+  </footer>
+
+</div>
+
+</body>
+</html>
