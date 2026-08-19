@@ -24,7 +24,7 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(90% 50% at 10% -10%, #ff80af 0%, rgba(255,225,236,0) 60%),
+    radial-gradient(90% 50% at 10% -10%,  #ff80af 0%, rgba(255,225,236,0) 60%),
     radial-gradient(70% 40% at 100% 0%, #FFF3DA 0%, rgba(255,243,218,0) 55%),
     var(--paper);
   background-attachment: fixed;
